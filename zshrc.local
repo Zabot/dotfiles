@@ -1,0 +1,25 @@
+# Don't share command history between terminals
+setopt no_share_history
+
+# Jump up to a diretory
+upto ()
+{
+    if [[ -z "$1" ]]; then
+        return
+    fi
+    local upto=$1
+    cd "${PWD/\/$upto\/*//$upto}"
+}
+
+# Catkin convience aliases
+alias 'catkin_make'='upto catkin_ws && catkin_make && source devel/setup.zsh; cd -'
+alias 'catkin_source'='upto catkin_ws && source devel/setup.zsh; cd -'
+
+# Source ROS workspaces if they exist
+if [[ -f /opt/ros/kinetic/setup.zsh ]]; then
+    source /opt/ros/kinetic/setup.zsh
+fi
+if [[ -f $HOME/catkin_ws/devel/setup.zsh ]]; then
+    source $HOME/catkin_ws/devel/setup.zsh
+fi
+
