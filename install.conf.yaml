@@ -6,4 +6,5 @@
 - link:
     ~/.vimrc:
     ~/.zshrc.local:
+    ~/.gitconfig:
 

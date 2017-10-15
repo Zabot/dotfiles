@@ -1,0 +1,5 @@
+[user]
+	email = zach.inbox@gmail.com
+	name = Zach Anderson
+[push]
+	default = matching
